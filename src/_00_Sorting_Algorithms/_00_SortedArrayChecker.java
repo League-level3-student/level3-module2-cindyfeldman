@@ -8,10 +8,10 @@ public class _00_SortedArrayChecker {
 	//   array is in ascending order and false otherwise
 public static boolean intArraySorted(int[] arr) {
 	for (int i = 0; i < arr.length; i++) {
-		if(arr[i]<arr[i]) {
+		if(arr[i-1]<arr[i]) {
 			return true;
 		}
-		else if(arr[i]>arr[i]) {
+		else if(arr[i-1]>arr[i]) {
 			return false;
 		}
 		
@@ -26,9 +26,9 @@ public static boolean intArraySorted(int[] arr) {
 	//   and it returns a boolean.
 	//   The method returns true if the double
 	//   array is in ascending order and false otherwise
-static boolean doubleArraySorted(Double[] dub) {
+static boolean doubleArraySorted(double[] dub) {
 	for (int i = 0; i < dub.length; i++) {
-		if(dub[i]-1<dub[i]) {
+		if(dub[i-1]<dub[i]) {
 			return true;
 		}
 		else if(dub[i-1]>dub[i]) {
