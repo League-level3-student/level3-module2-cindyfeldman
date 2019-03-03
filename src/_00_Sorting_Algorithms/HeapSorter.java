@@ -4,6 +4,7 @@ public class HeapSorter extends Sorter {
 
 	public HeapSorter() {
 		type = "Heap";
+		
 	}
 	
 	//1. Since this sorting algorithm uses recursion, 
@@ -64,7 +65,7 @@ public class HeapSorter extends Sorter {
 	 array[i] = array[largest];
 	 array[largest] = s;
 	 heapSort(array,n,largest,display);
-	 display.updateDisplay();
+	
  }
 	}
 
