@@ -15,7 +15,7 @@ class _04_SearchTest {
 				"hi","bye","whats up"
 		};
 		//1. use the assertEquals method to test your linear search method.
-	assertEquals(linearSearch.linearSearch(words, "hi"),0);
+	assertEquals(linearSearch.linearSearch(words, "hi"),1);
 	
 	}
 

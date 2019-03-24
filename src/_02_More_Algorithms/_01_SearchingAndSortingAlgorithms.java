@@ -2,6 +2,7 @@ package _02_More_Algorithms;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -14,27 +15,53 @@ public class _01_SearchingAndSortingAlgorithms {
 	 **/
 
 	/* 1. Create a method that will find and return the first index of a broken egg */
+	int findBrokenEgg(List<String> eggs) {
+	
+	for (int i = 0; i < eggs.size(); i++) {
+		if(eggs.get(i).equals("cracked")) {
+			return i;
+		}
+		
+	}
+	return -1;
+	}
 	@Test
 	public void testSearch() {
 		List<String> eggs = Arrays.asList(new String[] { "whole", "whole", "whole", "whole", "cracked", "whole", "whole", "whole",
 				"cracked", "whole", "whole", "whole" });
-		assertEquals(4, Algorithms.findBrokenEgg(eggs));
+		assertEquals(4, findBrokenEgg(eggs));
 	}
 
-	/* 2. Count how many oysters contain pearls. */
-//	@Test
-//	public void testSearchAndAccumulate() throws Exception {
-//		List<Boolean> oysters = Arrays.asList(new Boolean[] { false, false, true, false, false, false, false, false, false, false, false,
-//				false, false, false, false, false, false, false, false, false, false, false, false, true });
-//		assertEquals(2, Algorithms.countPearls(oysters));
-//	}
+	//2. Count how many oysters contain pearls. 
+	int countPearls(List<Boolean> oysters) {
+		for (int i = 0; i < oysters.size(); i++) {
+			if(oysters.get(i)==true) {
+				return i;
+			}
+		}
+		return -1;
+	}
+	@Test
+	public void testSearchAndAccumulate() throws Exception {
+		List<Boolean> oysters = Arrays.asList(new Boolean[] { false, false, true, false, false, false, false, false, false, false, false,
+				false, false, false, false, false, false, false, false, false, false, false, false, true });
+		assertEquals(2, countPearls(oysters));
+	}
 
+	
 	/* 3. Create a method that will return the height of the tallest person. */
-//	@Test
-//	public void testFindMaxiumum() throws Exception {
-//		List<Double> peeps = Arrays.asList(new Double[] { 5.7, 6.2, 3.4, 6.2, 5.0, 5.5, 4.7, 6.2, 3.4, 4.2, 5.0, 4.5, 5.1, 6.6 });
-//		assertEquals(6.6, Algorithms.findTallest(peeps), 0.0);
-//	}
+	double findTallest(List<Double> peeps) {
+		for (int i = 0; i < peeps.size(); i++) {
+		if(peeps.get(i).doubleValue()>peeps.get(i)) {
+					return peeps.get(i).doubleValue();
+		}}
+		return -1;
+	}
+	@Test
+	public void testFindMaxiumum() throws Exception {
+		List<Double> peeps = Arrays.asList(new Double[] { 5.7, 6.2, 3.4, 6.2, 5.0, 5.5, 4.7, 6.2, 3.4, 4.2, 5.0, 4.5, 5.1, 6.6 });
+		assertEquals(6.6, findTallest(peeps), 0.0);
+	}
 
 	/* 4. Create a method that will find the longest word. */
 //	@Test
