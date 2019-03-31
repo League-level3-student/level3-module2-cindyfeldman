@@ -36,10 +36,10 @@ class _01_SwappingDigits {
 	public static void sortIntArray(int[] arr) {
 		for(int i = 0; i < arr.length; i++) {
 		
-				if(arr[i-1]>arr[i]) {
-					int s = arr[i-1];
-					arr[i-1] = arr[i];
-					arr[i]=s;
+				if(arr[i]>arr[i+1]) {
+					int s = arr[i];
+					arr[i] = arr[i+1];
+					arr[i+1]=s;
 			System.out.println(arr[i]);
 				}
 			
