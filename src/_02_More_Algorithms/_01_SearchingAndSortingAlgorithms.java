@@ -94,31 +94,45 @@ public class _01_SearchingAndSortingAlgorithms {
 			if(message.get(i).contains("...---...")) {
 				contain = true;
 			}
-		return true;
+			else {
+				contain = false;
+			}
+			
 		}
-		return false;
+		return contain;
 			
 	}
 	@Test
 	public void testFindString() throws Exception {
 		List<String> message1 = Arrays.asList(".... . .-. .-. --- / ... --- ... / -.-- .- .-.. .-.. ...".split("/"));
-		assertEquals(true, containsSOS(message1));
+		assertEquals(false, containsSOS(message1));
 		List<String> message2 = Arrays
 			.asList(".-- .. - .... / - .... . / .-.. .. --. .... - ... / --- ..- - --..-- / ...---... / .-.. . ... ... / -.. .- -. --. . .-. --- ..- ... / .... . .-. . / .-- . / .- .-. . / -. --- .-- ? / . -. - . .-. - .- .. -. / ..- ... / .. / ..-. . . .-.. / ... - ..- .--. .. -.. / .- -. -.. / -.-. --- -. - .- --. .. --- ..- ... / .... . .-. . / .-- . / .- .-. . / -. --- .-- ? / . -. - . .-. - .- .. -. / ..- ... / .- / -- ..- .-.. .- - - --- --..-- / .- -. / .- .-.. -... .. -. --- --..-- / .- / -- --- ... --.- ..- .. - --- --..-- / -- -.-- / .-.. .. -... .. -.. --- / -.-- . .- .... --..-- / .... . -.-- / -.-- . .- ....".split("/"));
-	assertEquals(true, containsSOS(message2));
+	assertEquals(false, containsSOS(message2));
 	}
 
 	/* 6. Write a morse code translator to read the messages. Just kidding! */
 
 	/* 7. Sort the exam results from lowest to highest. */
-	int sortScores(List<Double> results) {
-		for (int i = 0; i < results.size(); i++) {
-			if(results.get(i)>results.get(i+1)) {
-		
-				
+	List<Double> sortScores(List<Double> results){
+		ArrayList<Double> unsort = new ArrayList<Double>();
+		for (int i = results.size()-1; i >=0 ; i--) {
+			unsort.add(results.get(i));
 		}
+		List<Double> r = new ArrayList<Double>();
+		for(int i = unsort.size()-1; i>=0;i--) {
+			int index = 0;
+			Double smallest = Double.MAX_VALUE;
+			for (int j = 0; j < unsort.size(); j++) {
+				if(unsort.get(j)<smallest) {
+					smallest = unsort.get(j);
+					index = j;
+				}
+			}r.add(smallest);
+			unsort.remove(index);
+			
 		}
-		return -1;
+		return r;
 	}
 	@Test
 	public void testSort() throws Exception {
