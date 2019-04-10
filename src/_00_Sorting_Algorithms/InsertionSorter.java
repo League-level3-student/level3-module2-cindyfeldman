@@ -20,6 +20,7 @@ public class InsertionSorter extends Sorter {
 					int s = array[j-1];
 					array[j-1] = j;
 					array[j] = s;
+					System.out.println(array[j]);
 				}
 		}}
 			//2. make another for loop that starts at i and counts down

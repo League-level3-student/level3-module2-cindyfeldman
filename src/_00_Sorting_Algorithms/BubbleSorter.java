@@ -13,15 +13,18 @@ public class BubbleSorter extends Sorter {
 	void sort(int[] array, SortingVisualizer display) {
 
 		for (int i = 0; i < array.length; i++) {
-			if (array[0] > array[1]) {
-				int s = array[0];
-				array[0] = array[1];
-				array[1] = s;
+			if (array[i] > array[i+1]) {
+				int s = array[i];
+				array[i] = i+1;
+				array[i+1] = s;
 				System.out.println(array[i]);
 				
 			}
+			else {
+				System.out.println(array[i]);
+			}
 
-		}display.updateDisplay();	
+		}
 	}
 
 }

@@ -142,16 +142,33 @@ public class _01_SearchingAndSortingAlgorithms {
 		assertEquals(40.7, sortScores(results).get(1), 0.0);
 	assertEquals(95.0, sortScores(results).get(13), 0.0);
 }
+List<String> sortDNA(List<String> sortedSequences) {
+	for (int i = 0; i < sortedSequences.size()-1; i++) {
+		int index = i;
+		for (int j = i+1; j < sortedSequences.size(); j++) {
+			if(sortedSequences.get(j).compareTo(sortedSequences.get(index))<0) {
+				String s = index;
+				index = j;
+				index = i;
+				sortedSequences.set(index, s);
+				
+			}
+		}
+		
 
+	}
+	
+return sortedSequences;
+	 }
 	/* 8. Sort the DNA sequences by length from shortest to longest. */
-//	@Test
-//	public void testSortStringLength() throws Exception {
-//		List<String> unsortedSequences = Arrays.asList(new String[] { "ATAGCTGATCGTAGCTACGTACGATCG", "CATCGTACATGC", "TATGTGT",
-//				"GCTGATCGTGACTGTAC", "ACTGT" });
-//		List<String> sortedSequences = Arrays.asList(new String[] { "ACTGT", "TATGTGT", "CATCGTACATGC", "GCTGATCGTGACTGTAC",
-//				"ATAGCTGATCGTAGCTACGTACGATCG" });
-//		assertEquals(sortedSequences, Algorithms.sortDNA(unsortedSequences));
-//	}
+	@Test
+	public void testSortStringLength() throws Exception {
+		List<String> unsortedSequences = Arrays.asList(new String[] { "ATAGCTGATCGTAGCTACGTACGATCG", "CATCGTACATGC", "TATGTGT",
+				"GCTGATCGTGACTGTAC", "ACTGT" });
+		List<String> sortedSequences = Arrays.asList(new String[] { "ACTGT", "TATGTGT", "CATCGTACATGC", "GCTGATCGTGACTGTAC",
+				"ATAGCTGATCGTAGCTACGTACGATCG" });
+	assertEquals(sortedSequences, sortDNA(unsortedSequences));
+	}
 
 	/*
 	 * 9. Sort the words in alphabetical order. Your teacher may need to explain compareTo.
