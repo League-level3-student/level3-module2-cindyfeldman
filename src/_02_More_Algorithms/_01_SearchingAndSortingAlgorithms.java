@@ -145,15 +145,17 @@ public class _01_SearchingAndSortingAlgorithms {
 List<String> sortDNA(List<String> sortedSequences) {
 	for (int i = 0; i < sortedSequences.size()-1; i++) {
 		int index = i;
+		
 		for (int j = i+1; j < sortedSequences.size(); j++) {
-			if(sortedSequences.get(j).compareTo(sortedSequences.get(index))<0) {
-				String s = index;
-				index = j;
-				index = i;
-				sortedSequences.set(index, s);
+			if(sortedSequences.get(j).length()<sortedSequences.get(index).length()) {
 				
+				
+				index = j;
 			}
 		}
+		String r = sortedSequences.get(i);
+		sortedSequences.set(i, sortedSequences.get(index));
+				sortedSequences.set(index,r );
 		
 
 	}
@@ -173,13 +175,27 @@ return sortedSequences;
 	/*
 	 * 9. Sort the words in alphabetical order. Your teacher may need to explain compareTo.
 	 */
-//	@Test
-//	public void testSortStringContents() throws Exception {
-//		List<String> words = Arrays.asList(new String[] { "aby", "dap", "alt", "alb", "ama", "ard", "ana", "ala", "awn", "dah", "bar",
-//				"bee", "bel", "bot", "bis", "cep", "alk", "cog", "col", "cwm", "dag", "ait", "dal", "daw" });
-//		assertEquals("aby", Algorithms.sortWords(words).get(0));
-//		assertEquals("bar", Algorithms.sortWords(words).get(10));
-//		assertEquals("daw", Algorithms.sortWords(words).get(words.size() - 1));
-//	}
+	List<String> sortWords(List<String> words) {
+		for (int i = 0; i < words.size()-1; i++) {
+			int index = i;
+			for (int j = i+1; j < words.size(); j++) {
+				if(words.get(j).compareTo(words.get(index))<0) {
+					index = j;
+				}
+			}
+			String r = words.get(i);
+			words.set(i, words.get(index));
+					words.set(index,r );
+		}
+		return words;
+	}
+	@Test
+	public void testSortStringContents() throws Exception {
+		List<String> words = Arrays.asList(new String[] { "aby", "dap", "alt", "alb", "ama", "ard", "ana", "ala", "awn", "dah", "bar",
+				"bee", "bel", "bot", "bis", "cep", "alk", "cog", "col", "cwm", "dag", "ait", "dal", "daw" });
+		assertEquals("aby", sortWords(words).get(0));
+		assertEquals("bar", sortWords(words).get(10));
+		assertEquals("daw", sortWords(words).get(words.size() - 1));
+	}
 
 }

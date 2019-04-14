@@ -29,6 +29,7 @@ public class BogoSorter extends Sorter {
 			array[r] = l;
 			
 			
+			
 		}
 	}}
 

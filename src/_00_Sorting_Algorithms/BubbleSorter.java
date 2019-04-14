@@ -12,15 +12,19 @@ public class BubbleSorter extends Sorter {
 	@Override
 	void sort(int[] array, SortingVisualizer display) {
 
-		for (int i = 0; i < array.length; i++) {
+		for (int i = 0; i < array.length-1; i++) {
+		
 			if (array[i] > array[i+1]) {
-				int s = array[i];
+				int s = i;
+			
 				array[i] = i+1;
-				array[i+1] = s;
+				array[i+1] = array[i];
+	
 				System.out.println(array[i]);
 				
 			}
 			else {
+				 
 				System.out.println(array[i]);
 			}
 
